@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="ro">
+<head>
+  <meta charset="UTF-8">
+  <title>Practica de inițiere RC241</title>
+  <script>
+    window.onload = function () {
+      const azi = new Date();
+      const zi = String(azi.getDate()).padStart(2, '0');
+      const luna = String(azi.getMonth() + 1).padStart(2, '0');
+      const an = azi.getFullYear();
+      document.getElementById('dataAzi').innerText = `Data: ${zi}.${luna}.${an} | Calendar`;
+
+      const boxe = document.querySelectorAll('input[name="raspunsCorect"]');
+      boxe.forEach(box => {
+        box.addEventListener('change', function () {
+          if (this.checked) {
+            boxe.forEach(b => {
+              if (b !== this) b.checked = false;
+            });
+          }
+        });
+      });
+    };
+  </script>
+</head>
+<body style="font-family: Arial, sans-serif; margin: 20px; background-color: #f0f0f0;">
+  <header style="background-color: #007bff; color: white; padding: 10px; text-align: center;">
+    <h1>Practica de inițiere Rc241</h1>
+    <nav>
+      <ul style="list-style: none; padding: 0;"></ul>
+    </nav>
+  </header>
+
+  <div style="display: flex; justify-content: space-between; margin-top: 20px;">
+    <p style="font-size: 24px; font-weight: bold;">Maxim</p>
+    <p style="font-size: 24px; font-weight: bold;">Vlad</p>
+  </div>
+
+  <div style="text-align: center; margin-top: 20px;">
+    <button>Text Mediu</button>
+  </div>
+
+  <main style="background-color: white; padding: 20px; margin-top: 10px;">
+    <div style="margin-top: 10px; background-color: #eee; padding: 10px;">
+      <p id="dataAzi">Data: --.--.---- | Calendar</p>
+    </div>
+
+    <div style="margin-top: 20px;">
+      <h3>Aici este un text</h3>
+      <p>Acesta este un text adăugat de mine :)</p>
+    </div>
+
+    <div style="margin-top: 20px;">
+      <label for="bookingDate">Alege o dată:</label>
+      <input type="date" id="bookingDate" name="bookingDate" style="padding: 5px;">
+    </div>
+
+    <div style="margin-top: 20px; display: flex; justify-content: space-between;">
+      <img src="https://i.pinimg.com/736x/1e/c1/f5/1ec1f51c84173a68e0d0c716e8718fca.jpg" alt="Imagine 1" style="width: 30%; height: auto;">
+      <img src="https://cdn.adh.reperio.news/image-8/8b5e6251-2e69-45e3-b482-70615153b637/index.jpeg?p=a%3D1%26co%3D1.05%26w%3D700%26h%3D750%26r%3Dcontain%26f%3Dwebp" alt="Imagine 2" style="width: 30%; height: auto;">
+      <img src="https://florinrosoga.ro/wp-content/uploads/foto-featured-image-landscape-04-1024x576.jpg" alt="Imagine 3" style="width: 30%; height: auto;">
+    </div>
+
+    <div style="margin-top: 30px;">
+      <p><strong>Varianta Corecta:</strong></p>
+      <label><input type="radio" name="variantaCorecta"> </label>
+      <label><input type="radio" name="variantaCorecta"> </label>
+    </div>
+
+    <div style="margin-top: 20px; display: flex; align-items: center; gap: 10px;">
+      <input type="checkbox" name="raspunsCorect">
+      <input type="checkbox" name="raspunsCorect">
+      <span>Raspuns corect</span>
+    </div>
+  </main>
+
+  <footer style="background-color: #007bff; color: white; padding: 10px 20px; text-align: center;">
+    <div style="display: flex; justify-content: space-between; align-items: center;">
+      <p style="margin: 0;">Andrei</p>
+      <p style="margin: 0;">Mihaela</p>
+    </div>
+    <p style="margin-top: 10px; font-size: 14px;">&copy; 2025 Maxim Caraman. Toate drepturile rezervate.</p>
+  </footer>
+</body>
+</html>
