@@ -1,0 +1,405 @@
+/* Reseturi și bază */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+body {
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  background-color: #121212;
+  color: #ddd;
+  line-height: 1.6;
+  transition: background-color 0.5s ease, color 0.5s ease;
+  min-height: 100vh;
+  scroll-behavior: smooth;
+}
+a {
+  color: inherit;
+  text-decoration: none;
+  transition: color 0.3s ease;
+}
+a:hover {
+  color: #e63946;
+}
+
+/* NAVBAR */
+.navbar {
+  position: fixed;
+  top: 0;
+  width: 100%;
+  background: #1e1e1e;
+  box-shadow: 0 2px 10px rgba(0,0,0,0.7);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 1rem 2rem;
+  z-index: 999;
+  transition: background-color 0.4s ease;
+}
+.logo {
+  font-weight: 900;
+  font-size: 1.7rem;
+  letter-spacing: 2px;
+  color: #e63946;
+  user-select: none;
+}
+.nav-links {
+  display: flex;
+  gap: 2rem;
+}
+.nav-links a {
+  font-weight: 600;
+  font-size: 1rem;
+  padding: 0.25rem 0.5rem;
+  border-radius: 5px;
+  user-select: none;
+}
+.nav-links a:hover,
+.nav-links a:focus {
+  background-color: #e63946;
+  color: #121212;
+  outline: none;
+}
+
+/* Buton tema */
+#theme-toggle {
+  background: none;
+  border: 2px solid #e63946;
+  color: #e63946;
+  padding: 0.25rem 0.8rem;
+  font-size: 1.3rem;
+  border-radius: 5px;
+  cursor: pointer;
+  user-select: none;
+  transition: all 0.3s ease;
+}
+#theme-toggle:hover {
+  background-color: #e63946;
+  color: #121212;
+}
+
+/* MAIN SECTIONS */
+main {
+  padding-top: 80px;
+  max-width: 1100px;
+  margin: auto;
+  padding-left: 20px;
+  padding-right: 20px;
+}
+
+/* Sections common */
+.section {
+  margin-bottom: 5rem;
+}
+.section h2 {
+  font-size: 2.3rem;
+  margin-bottom: 1rem;
+  border-left: 5px solid #e63946;
+  padding-left: 0.75rem;
+  user-select: none;
+}
+
+/* About */
+.about p {
+  font-size: 1.1rem;
+  max-width: 700px;
+  user-select: text;
+  line-height: 1.8;
+  color: #ccc;
+  opacity: 0;
+  animation: fadeInUp 1.5s forwards;
+  animation-delay: 0.2s;
+}
+
+/* Barber Cards */
+.barbers .barber-cards {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 2rem;
+  justify-content: center;
+}
+.barber-card {
+  background: #1e1e1e;
+  width: 280px;
+  padding: 1.5rem 1rem;
+  border-radius: 12px;
+  box-shadow: 0 5px 15px rgb(230 57 70 / 0.3);
+  text-align: center;
+  color: #eee;
+  cursor: default;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  user-select: none;
+}
+.barber-card:hover {
+  transform: translateY(-10px);
+  box-shadow: 0 10px 30px rgb(230 57 70 / 0.6);
+}
+.barber-card img {
+  width: 120px;
+  height: 120px;
+  border-radius: 50%;
+  object-fit: cover;
+  margin-bottom: 1rem;
+  filter: grayscale(40%);
+  transition: filter 0.4s ease;
+}
+.barber-card:hover img {
+  filter: grayscale(0);
+}
+.barber-card h3 {
+  font-size: 1.4rem;
+  margin-bottom: 0.3rem;
+}
+.barber-card .rank {
+  font-weight: 700;
+  text-transform: uppercase;
+  font-size: 0.9rem;
+  color: #e63946;
+  margin-bottom: 0.5rem;
+}
+
+/* Rank colors */
+.barber-card.beginner .rank {
+  color: #a8dadc;
+}
+.barber-card.pro .rank {
+  color: #f4a261;
+}
+.barber-card.expert .rank {
+  color: #e63946;
+}
+
+/* Prices */
+.prices ul {
+  list-style: none;
+  max-width: 500px;
+  margin: auto;
+  font-size: 1.2rem;
+  color: #ddd;
+}
+.prices li {
+  display: flex;
+  justify-content: space-between;
+  padding: 0.8rem 1rem;
+  border-bottom: 1px solid #333;
+  transition: background-color 0.3s ease;
+  user-select: none;
+  cursor: default;
+}
+.prices li:hover {
+  background-color: #2a2a2a;
+}
+.price {
+  font-weight: 700;
+  color: #e63946;
+}
+.price.special {
+  font-size: 1.3rem;
+  font-weight: 900;
+}
+
+/* Products */
+.products .product-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+  gap: 1.8rem;
+}
+.product-card {
+  background-color: #1e1e1e;
+  border-radius: 10px;
+  padding: 1rem;
+  text-align: center;
+  box-shadow: 0 5px 15px rgb(230 57 70 / 0.3);
+  user-select: none;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  position: relative;
+}
+.product-card:hover {
+  transform: scale(1.05);
+  box-shadow: 0 10px 30px rgb(230 57 70 / 0.7);
+}
+.product-card img {
+  width: 100%;
+  height: 180px;
+  object-fit: contain;
+  margin-bottom: 1rem;
+}
+.product-card h3 {
+  margin-bottom: 0.5rem;
+  color: #f1f1f1;
+}
+.product-card p {
+  font-size: 0.95rem;
+  margin-bottom: 1rem;
+  color: #ccc;
+}
+.product-card .price {
+  font-weight: 800;
+  color: #e63946;
+  margin-bottom: 1rem;
+}
+.buy-btn {
+  background-color: #e63946;
+  color: #121212;
+  border: none;
+  padding: 0.6rem 1.4rem;
+  border-radius: 5px;
+  cursor: pointer;
+  font-weight: 700;
+  transition: background-color 0.3s ease;
+  user-select: none;
+}
+.buy-btn:hover {
+  background-color: #b1272e;
+}
+
+
+/* Reviews */
+.reviews {
+  background-color: #222;
+  padding: 2rem 1rem;
+  border-radius: 15px;
+  box-shadow: 0 10px 25px rgb(230 57 70 / 0.4);
+  max-width: 700px;
+  margin: 0 auto 5rem auto;
+  user-select: none;
+}
+.reviews h2 {
+  color: #e63946;
+  text-align: center;
+  margin-bottom: 2rem;
+}
+.review-slider {
+  position: relative;
+  overflow: hidden;
+  height: 160px;
+}
+.review {
+  position: absolute;
+  top: 0;
+  left: 100%;
+  width: 100%;
+  padding: 0 2rem;
+  opacity: 0;
+  transition: left 0.6s ease, opacity 0.6s ease;
+  font-style: italic;
+  color: #ddd;
+}
+.review.active {
+  left: 0;
+  opacity: 1;
+}
+.review h4 {
+  margin-top: 1rem;
+  text-align: right;
+  font-weight: 700;
+  color: #e63946;
+}
+.review-controls {
+  margin-top: 1rem;
+  text-align: center;
+}
+.review-controls button {
+  background-color: #e63946;
+  color: #121212;
+  border: none;
+  font-size: 1.8rem;
+  margin: 0 1rem;
+  padding: 0 12px;
+  border-radius: 50%;
+  cursor: pointer;
+  user-select: none;
+  transition: background-color 0.3s ease;
+}
+.review-controls button:hover {
+  background-color: #b1272e;
+}
+
+/* Location */
+.location {
+  max-width: 900px;
+  margin: 0 auto 5rem auto;
+  text-align: center;
+}
+.location h2 {
+  margin-bottom: 1rem;
+  color: #e63946;
+}
+.map-container iframe {
+  border-radius: 15px;
+  box-shadow: 0 5px 15px rgba(230, 57, 70, 0.4);
+}
+
+/* Animations */
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(25px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* FOOTER */
+footer {
+  text-align: center;
+  padding: 1.8rem 1rem;
+  background-color: #1e1e1e;
+  color: #777;
+  font-size: 0.95rem;
+  user-select: none;
+  border-top: 2px solid #e63946;
+}
+
+/* LIGHT THEME */
+body.light {
+  background-color: #fafafa;
+  color: #222;
+}
+body.light .navbar {
+  background: #fff;
+  box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+}
+body.light .logo {
+  color: #e63946;
+}
+body.light .nav-links a:hover,
+body.light .nav-links a:focus {
+  background-color: #e63946;
+  color: #fff;
+}
+body.light #theme-toggle {
+  border-color: #e63946;
+  color: #e63946;
+}
+body.light #theme-toggle:hover {
+  background-color: #e63946;
+  color: #fff;
+}
+body.light .barber-card {
+  background: #fff;
+  color: #222;
+  box-shadow: 0 5px 15px rgb(230 57 70 / 0.15);
+}
+body.light .barber-card:hover {
+  box-shadow: 0 10px 30px rgb(230 57 70 / 0.3);
+}
+body.light .product-card {
+  background: #fff;
+  color: #222;
+  box-shadow: 0 5px 15px rgb(230 57 70 / 0.15);
+}
+body.light .product-card:hover {
+  box-shadow: 0 10px 30px rgb(230 57 70 / 0.3);
+}
+body.light .reviews {
+  background: #f5f5f5;
+  color: #222;
+  box-shadow: 0 10px 25px rgb(230 57 70 / 0.15);
+}
+body.light footer {
+  background-color: #fff;
+  color: #777;
+}
